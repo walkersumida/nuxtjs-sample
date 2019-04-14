@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    entrypoint: yarn run dev
+    entrypoint: sh /app/docker/start_app.sh
     ports:
       - "8080:3000"
     volumes:
