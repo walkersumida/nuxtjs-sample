@@ -21,9 +21,6 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
-RUN yarn add -D @nuxt/typescript
-RUN yarn add ts-node
-
 WORKDIR /app
 
 ENV HOST 0.0.0.0
