@@ -1,6 +1,13 @@
 # nuxtjs-sample
 
-> My tremendous Nuxt.js project
+TypeScript + Nuxt.js + Vuetify + Jest
+
+## Start docker
+
+```bash
+# start docker
+$ make docker_up
+```
 
 ## Build Setup
 
@@ -20,3 +27,7 @@ $ yarn run generate
 ```
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+
+## Sample Pages
+### posts#index
+url: http://0.0.0.0:8080/posts
