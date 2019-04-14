@@ -1,4 +1,4 @@
-# test-nuxtjs2
+# nuxtjs-sample
 
 > My tremendous Nuxt.js project
 
