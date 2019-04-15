@@ -28,6 +28,12 @@ $ yarn run generate
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
 
+## Run test
+
+```bash
+$ yarn test
+```
+
 ## Sample Pages
 ### posts#index
 url: http://0.0.0.0:8080/posts
