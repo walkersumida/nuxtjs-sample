@@ -25,6 +25,13 @@ export default {
   },
 
   /*
+   ** Environment variables
+   */
+  env: {
+    apiUrl: process.env.API_URL || 'http://0.0.0.0:3000'
+  },
+
+  /*
    ** Customize the progress-bar color
    */
   loading: { color: '#fff' },
