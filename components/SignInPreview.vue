@@ -13,23 +13,16 @@
 </template>
 
 <script lang="ts">
-import axios from '~/plugins/axios'
 import { Component, Vue } from 'vue-property-decorator'
 
 @Component
 export default class SignInPreview extends Vue {
-  async onClick() {
-    const params = new URLSearchParams()
-    params.append('email', this.email)
-    params.append('password', this.password)
-    try {
-      const res = await axios.post('/auth/sign_in', params)
-      console.log('success')
-      console.log(res)
-    } catch (error) {
-      console.log('error')
-      console.log(error)
-    }
+  onClick() {
+    console.log(this.$store.getters['user/data'])
+    this.$store.dispatch('user/signIn', {
+      email: this.email,
+      password: this.password
+    })
   }
 }
 </script>

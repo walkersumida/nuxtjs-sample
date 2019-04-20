@@ -85,6 +85,9 @@ export default {
           exclude: /(node_modules)/
         })
       }
-    }
+    },
+    vendor: [
+      'vuex',
+    ]
   }
 }
