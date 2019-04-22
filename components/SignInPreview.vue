@@ -19,10 +19,14 @@ import { Component, Vue } from 'vue-property-decorator'
 export default class SignInPreview extends Vue {
   onClick() {
     console.log(this.$store.getters['user/data'])
-    this.$store.dispatch('user/signIn', {
-      email: this.email,
-      password: this.password
-    })
+    this.$store
+      .dispatch('user/signIn', {
+        email: this.email,
+        password: this.password
+      })
+      .then(done => {
+        this.$router.push('/posts')
+      })
   }
 }
 </script>
