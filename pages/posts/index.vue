@@ -9,6 +9,7 @@ import { Component, Vue } from 'vue-property-decorator'
 import Post from '~/models/Post'
 
 @Component({
+  middleware: ['authenticated'],
   components: {
     PostPreview: () => import('~/components/PostPreview.vue')
   },
