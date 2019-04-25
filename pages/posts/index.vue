@@ -5,24 +5,18 @@
 </template>
 
 <script lang="ts">
+import axios from '~/plugins/axios'
 import { Component, Vue } from 'vue-property-decorator'
 import Post from '~/models/Post'
 
 @Component({
-  middleware: ['authenticated'],
   components: {
     PostPreview: () => import('~/components/PostPreview.vue')
   },
-  asyncData() {
+  async asyncData() {
+    const res = await axios.get('/posts')
     return {
-      // TODO: call api server
-      posts: [
-        {
-          id: 1,
-          title: 'aaa',
-          description: 'AAA'
-        }
-      ]
+      posts: res
     }
   }
 })
