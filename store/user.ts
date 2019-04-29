@@ -13,9 +13,6 @@ export const mutations = {
 }
 
 export const getters = {
-  isAuthenticated (state) {
-    return !!state.data
-  },
   data (state) {
     return state.data
   }
