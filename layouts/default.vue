@@ -16,7 +16,7 @@
           exact
         >
           <v-list-tile-action>
-            <v-icon>{{ item.icon }}</v-icon>
+            <v-icon>{{ $vuetify.icons[item.icon] }}</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
             <v-list-tile-title v-text="item.title" />
@@ -39,8 +39,11 @@
   </v-app>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+
+@Component
+export default class LayoutDefault extends Vue {
   data() {
     return {
       clipped: false,
@@ -48,14 +51,9 @@ export default {
       fixed: false,
       items: [
         {
-          icon: 'apps',
-          title: 'Welcome',
-          to: '/'
-        },
-        {
-          icon: 'bubble_chart',
-          title: 'Inspire',
-          to: '/inspire'
+          icon: 'logout',
+          title: 'Logout',
+          to: '/sign_out'
         }
       ],
       miniVariant: false,
