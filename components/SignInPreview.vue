@@ -17,6 +17,12 @@ import { Component, Vue } from 'vue-property-decorator'
 
 @Component
 export default class SignInPreview extends Vue {
+  data() {
+    return {
+      email: '',
+      password: ''
+    }
+  }
   onClick() {
     console.log(this.$store.getters['user/data'])
     this.$store
