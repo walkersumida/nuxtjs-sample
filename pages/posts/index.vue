@@ -20,7 +20,7 @@ import Post from '~/models/Post'
     }
   }
 })
-export default class FeedPage extends Vue {
+export default class PostsIndex extends Vue {
   posts: Post[] = []
 }
 </script>
