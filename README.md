@@ -35,5 +35,9 @@ $ yarn test
 ```
 
 ## Sample Pages
-### posts#index
-url: http://0.0.0.0:8080/posts
+### sign in
+http://0.0.0.0:8080/sign_in
+### sign out
+http://0.0.0.0:8080/sign_out
+### posts(Authorization: required)
+http://0.0.0.0:8080/posts
