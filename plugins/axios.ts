@@ -61,9 +61,12 @@ axiosInstance.interceptors.response.use((response) => {
   setCookies(response.headers)
   return response
 }, (error) => {
-  // TODO: redirect sign in page if 401 error
   console.log('inter res err:', error)
   removeCookies()
+  // FIXME: redirect without using window.location
+  if(error.response.status === 401) {
+    window.location.href = '/sign_in'
+  }
   return Promise.reject(error)
 })
 export default axiosInstance
