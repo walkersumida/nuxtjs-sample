@@ -1,11 +1,11 @@
-import { shallow } from "vue-test-utils"
+import { shallowMount } from "@vue/test-utils"
 import PostPreview from "@/components/PostPreview.vue"
 
 describe("PostPreview component", () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(PostPreview, {
+    wrapper = shallowMount(PostPreview, {
       propsData: {
         post: {
           id: 1,
