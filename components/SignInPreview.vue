@@ -1,13 +1,18 @@
 <template>
   <div>
     <p>
-      <input v-model="email" type="text" placeholder="email" />
+      <input v-model="email" name="email" type="text" placeholder="email" />
     </p>
     <p>
-      <input v-model="password" type="password" placeholder="password" />
+      <input
+        v-model="password"
+        name="password"
+        type="password"
+        placeholder="password"
+      />
     </p>
     <p>
-      <input value="Sign In" type="submit" @click="onClick" />
+      <input value="Sign In" type="submit" @click="signIn" />
     </p>
   </div>
 </template>
@@ -23,7 +28,7 @@ export default class SignInPreview extends Vue {
       password: ''
     }
   }
-  onClick() {
+  signIn() {
     console.log(this.$store.getters['user/data'])
     this.$store
       .dispatch('user/signIn', {
