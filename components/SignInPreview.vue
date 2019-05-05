@@ -29,7 +29,6 @@ export default class SignInPreview extends Vue {
     }
   }
   signIn() {
-    console.log(this.$store.getters['user/data'])
     this.$store
       .dispatch('user/signIn', {
         email: this.email,

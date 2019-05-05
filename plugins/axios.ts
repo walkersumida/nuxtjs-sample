@@ -47,21 +47,17 @@ const axiosInstance = axios.create({
 })
 
 axiosInstance.interceptors.request.use((config) => {
-  console.log('inter req:', config)
   config.headers = setHeaders(config.headers)
   return config
 }, (error) => {
-  console.log('inter req err:', error)
   return Promise.reject(error)
 })
 
 axiosInstance.interceptors.response.use((response) => {
   // See https://devise-token-auth.gitbook.io/devise-token-auth/conceptual
-  console.log('inter res:', response)
   setCookies(response.headers)
   return response
 }, (error) => {
-  console.log('inter res err:', error)
   removeCookies()
   // FIXME: redirect without using window.location
   if(error.response.status === 401) {

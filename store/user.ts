@@ -25,12 +25,8 @@ export const actions = {
     params.append('password', password)
     try {
       const res = await axios.post('/auth/sign_in', params)
-      console.log('success')
-      console.log(res)
       commit('SET_USER', res.data.data)
     } catch (error) {
-      console.log('error')
-      console.log(error)
       commit('SET_USER', null)
     }
   }
