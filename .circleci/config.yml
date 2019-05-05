@@ -1,36 +1,26 @@
 version: 2
 jobs:
   build:
-    machine:
-      image: circleci/classic:edge
+    docker:
+      - image: node:8
     working_directory: ~/repo
+
     steps:
       - checkout
-      - run:
-          name: Install Docker Compose
-          command: |
-            curl -L https://github.com/docker/compose/releases/download/1.24.0/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
-            chmod +x ~/docker-compose
-            sudo mv ~/docker-compose /usr/local/bin/docker-compose
-      - run:
-          name: docker-compose up
-          command: |
-            set -x
-            docker-compose up --build -d
-      - run:
-          name: docker-compose stop
-          command: |
-            set -x
-            docker-compose stop
-      - run:
-          name: docker-compose up
-          command: |
-            set -x
-            docker-compose up -d
-      - run:
-          name: test
-          command: |
-            docker-compose exec app yarn test
-      - run:
-          name: docker-compose down
-          command: docker-compose down
+      - run: yarn --version
+
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "yarn.lock" }}
+          - v1-dependencies-
+
+      - run: yarn install --frozen-lockfile
+      - run: ls -la node_modules
+      - run: ls -la node_modules/.bin
+
+      - run: yarn test
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "yarn.lock" }}
