@@ -18,7 +18,8 @@ jobs:
       - run: ls -la node_modules
       - run: ls -la node_modules/.bin
 
-      - run: yarn test
+        # TODO: not use -u option
+      - run: yarn test -u
 
       - save_cache:
           paths:
