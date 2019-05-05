@@ -5,6 +5,7 @@
 </template>
 
 <script lang="ts">
+import axios from '~/plugins/axios'
 import { Component, Vue } from 'vue-property-decorator'
 import Post from '~/models/Post'
 
@@ -12,20 +13,14 @@ import Post from '~/models/Post'
   components: {
     PostPreview: () => import('~/components/PostPreview.vue')
   },
-  asyncData() {
+  async asyncData() {
+    const res = await axios.get('/posts')
     return {
-      // TODO: call api server
-      posts: [
-        {
-          id: 1,
-          title: 'aaa',
-          description: 'AAA'
-        }
-      ]
+      posts: res
     }
   }
 })
-export default class FeedPage extends Vue {
+export default class PostsIndex extends Vue {
   posts: Post[] = []
 }
 </script>

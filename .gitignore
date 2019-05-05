@@ -24,6 +24,7 @@ coverage
 
 # test snapshots
 test/__snapshots__
+test/components/__snapshots__
 
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
 .grunt

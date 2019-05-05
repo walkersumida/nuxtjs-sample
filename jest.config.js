@@ -19,5 +19,8 @@ module.exports = {
     'ts-jest': {
       diagnostics: false
     }
-  }
+  },
+  setupFiles: [
+    'jest-plugin-context/setup'
+  ]
 }
