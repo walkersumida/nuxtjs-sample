@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>{{ post.title }}</h2>
-    <p>{{ post.description }}</p>
+    <p>{{ post.body }}</p>
   </div>
 </template>
 

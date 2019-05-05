@@ -10,7 +10,7 @@ describe("PostPreview component", () => {
         post: {
           id: 1,
           title: "AAA",
-          description: "aaa"
+          body: "aaa"
         }
       }
     });
