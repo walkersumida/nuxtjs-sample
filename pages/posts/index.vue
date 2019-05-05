@@ -16,7 +16,7 @@ import Post from '~/models/Post'
   async asyncData() {
     const res = await axios.get('/posts')
     return {
-      posts: res
+      posts: res.data
     }
   }
 })
