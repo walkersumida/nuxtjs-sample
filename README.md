@@ -1,5 +1,7 @@
 # nuxtjs-sample
 
+[![CircleCI](https://circleci.com/gh/walkersumida/nuxtjs-sample.svg?style=svg)](https://circleci.com/gh/walkersumida/nuxtjs-sample)
+
 TypeScript + Nuxt.js + Vuetify + Jest
 
 ## Start docker
