@@ -1,6 +1,11 @@
 <template>
   <div>
-    <PostShow v-for="post in posts" :key="post.id" :post="post" />
+    <div>
+      <PostShow v-for="post in posts" :key="post.id" :post="post" />
+    </div>
+    <div>
+      <nuxt-link to="/posts/new"><v-btn color="info">Add</v-btn></nuxt-link>
+    </div>
   </div>
 </template>
 
