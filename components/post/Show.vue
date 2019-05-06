@@ -10,7 +10,7 @@ import { Component, Vue, Prop } from 'vue-property-decorator'
 import Post from '~/models/Post'
 
 @Component
-export default class PostPreview extends Vue {
+export default class PostShow extends Vue {
   @Prop({ type: Object, required: true }) post: Post
 }
 </script>

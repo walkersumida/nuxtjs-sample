@@ -1,6 +1,6 @@
 <template>
   <div>
-    <PostPreview v-for="post in posts" :key="post.id" :post="post" />
+    <PostShow v-for="post in posts" :key="post.id" :post="post" />
   </div>
 </template>
 
@@ -11,7 +11,7 @@ import Post from '~/models/Post'
 
 @Component({
   components: {
-    PostPreview: () => import('~/components/PostPreview.vue')
+    PostShow: () => import('~/components/post/Show.vue')
   },
   async asyncData() {
     const res = await axios.get('/posts')
