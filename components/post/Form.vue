@@ -1,15 +1,16 @@
 <template>
-  <div>
+  <v-form ref="form">
     <p>
-      <input v-model="title" name="title" type="text" placeholder="title" />
+      <v-text-field v-model="title" label="Title" :rules="titleRules">
+      </v-text-field>
     </p>
     <p>
-      <input v-model="body" name="body" type="body" placeholder="body" />
+      <v-textarea v-model="body" label="Body"></v-textarea>
     </p>
     <p>
       <v-btn color="info" @click="savePost">Save</v-btn>
     </p>
-  </div>
+  </v-form>
 </template>
 
 <script lang="ts">
@@ -22,10 +23,12 @@ export default class PostForm extends Vue {
   data() {
     return {
       title: '',
+      titleRules: [v => !!v || 'Title is required'],
       body: ''
     }
   }
   savePost() {
+    if (!this.$refs.form.validate()) return
     this.$store
       .dispatch('post/create', {
         title: this.title,
