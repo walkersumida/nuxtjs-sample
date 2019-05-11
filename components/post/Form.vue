@@ -1,5 +1,5 @@
 <template>
-  <v-form ref="form">
+  <v-form ref="form" v-model="valid">
     <p>
       <v-text-field v-model="title" label="Title" :rules="titleRules">
       </v-text-field>
@@ -8,7 +8,7 @@
       <v-textarea v-model="body" label="Body"></v-textarea>
     </p>
     <p>
-      <v-btn color="info" @click="savePost">Save</v-btn>
+      <v-btn color="info" :disabled="!valid" @click="savePost">Save</v-btn>
     </p>
   </v-form>
 </template>
@@ -24,11 +24,12 @@ export default class PostForm extends Vue {
     return {
       title: '',
       titleRules: [v => !!v || 'Title is required'],
-      body: ''
+      body: '',
+      valid: false
     }
   }
   savePost() {
-    if (!this.$refs.form.validate()) return
+    if (!this.$refs.form.validate()) return (this.valid = false)
     this.$store
       .dispatch('post/create', {
         title: this.title,
