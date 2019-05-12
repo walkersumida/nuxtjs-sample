@@ -41,5 +41,7 @@ $ yarn test
 http://0.0.0.0:8080/sign_in
 ### sign out
 http://0.0.0.0:8080/sign_out
-### posts(Authorization: required)
+### post index page(Authorization: required)
 http://0.0.0.0:8080/posts
+### post new page(Authorization: required)
+http://0.0.0.0:8080/posts/new
