@@ -1,6 +1,11 @@
 <template>
   <div>
-    <PostPreview v-for="post in posts" :key="post.id" :post="post" />
+    <div>
+      <PostShow v-for="post in posts" :key="post.id" :post="post" />
+    </div>
+    <div>
+      <nuxt-link to="/posts/new"><v-btn color="info">Add</v-btn></nuxt-link>
+    </div>
   </div>
 </template>
 
@@ -11,12 +16,12 @@ import Post from '~/models/Post'
 
 @Component({
   components: {
-    PostPreview: () => import('~/components/PostPreview.vue')
+    PostShow: () => import('~/components/post/Show.vue')
   },
   async asyncData() {
     const res = await axios.get('/posts')
     return {
-      posts: res
+      posts: res.data
     }
   }
 })

@@ -15,6 +15,7 @@ Vue.use(Vuetify, {
   },
   iconfont: 'fa4',
   icons: {
+    post: 'fa fa-lg fa-file',
     logout: 'fa fa-lg fa-sign-out'
   }
 })

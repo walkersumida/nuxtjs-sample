@@ -51,6 +51,11 @@ export default class LayoutDefault extends Vue {
       fixed: false,
       items: [
         {
+          icon: 'post',
+          title: 'Post',
+          to: '/posts'
+        },
+        {
           icon: 'logout',
           title: 'Logout',
           to: '/sign_out'
