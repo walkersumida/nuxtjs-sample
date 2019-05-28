@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div>
+    <v-container grid-list-md text-xs>
       <PostShow v-for="post in posts" :key="post.id" :post="post" />
-    </div>
+    </v-container>
     <div>
       <nuxt-link to="/posts/new"><v-btn color="info">Add</v-btn></nuxt-link>
     </div>

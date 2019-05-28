@@ -15,5 +15,8 @@ export const actions = {
       }
     }
     const res = await axios.post('/posts', params)
+  },
+  async delete({ commit }, { post }) {
+    const res = await axios.delete('/posts/' + post.id)
   }
 }
