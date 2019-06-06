@@ -10,7 +10,6 @@
 </template>
 
 <script lang="ts">
-import axios from '~/plugins/axios'
 import { Component, Vue } from 'vue-property-decorator'
 import Post from '~/models/Post'
 
@@ -18,10 +17,10 @@ import Post from '~/models/Post'
   components: {
     PostShow: () => import('~/components/post/Show.vue')
   },
-  async asyncData() {
-    const res = await axios.get('/posts')
+  async asyncData({ store }) {
+    await store.dispatch('post/index')
     return {
-      posts: res.data
+      posts: store.getters['post/data']
     }
   }
 })

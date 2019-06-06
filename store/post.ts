@@ -1,12 +1,28 @@
 import axios from '~/plugins/axios'
 
-export const state = () => {}
+export const state = () => {
+  return {
+    data: []
+  }
+}
 
-export const mutations = {}
+export const mutations = {
+  SET_POST (state, data) {
+    state.data = data || []
+  }
+}
 
-export const getters = {}
+export const getters = {
+  data (state) {
+    return state.data
+  }
+}
 
 export const actions = {
+  async index({ commit }) {
+    const res = await axios.get('/posts')
+    commit('SET_POST', res.data)
+  },
   async create ({ commit }, { title, body }) {
     const params = {
       post: {
