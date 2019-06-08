@@ -26,7 +26,7 @@ export default class PostShow extends Vue {
       })
       .then(
         done => {
-          this.$router.go({ path: '/posts' })
+          console.log('success')
         },
         fail => {
           console.log('fail')

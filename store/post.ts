@@ -1,4 +1,5 @@
 import axios from '~/plugins/axios'
+import Post from '~/models/Post'
 
 export const state = () => {
   return {
@@ -32,7 +33,20 @@ export const actions = {
     }
     const res = await axios.post('/posts', params)
   },
-  async delete({ commit }, { post }) {
-    const res = await axios.delete('/posts/' + post.id)
+  async delete({ commit, getters }, { post }) {
+    try {
+      const res = await axios.delete('/posts/' + post.id)
+      let data: Post[]
+      data = removePost(post.id, getters.data)
+      commit('SET_POST', data)
+    } catch (error) {
+      console.log(error)
+    }
   }
+}
+
+const removePost = (postId: number, posts: Post[]) => {
+  return posts.filter(p => {
+    return p.id !== postId
+  })
 }
