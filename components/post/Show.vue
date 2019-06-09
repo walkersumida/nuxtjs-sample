@@ -7,7 +7,7 @@
       <p>{{ post.body }}</p>
     </v-flex>
     <v-flex xs3>
-      <v-btn flat="true" color="error" @click="deletePost">Delete</v-btn>
+      <v-btn flat color="error" @click="deletePost">Delete</v-btn>
     </v-flex>
   </v-layout>
 </template>
