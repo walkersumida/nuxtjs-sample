@@ -21,6 +21,6 @@ describe("PostShow component", () => {
   });
 
   it("has the expected text", () => {
-    expect(wrapper.text()).toBe('AAA aaa Delete');
+    expect(wrapper.text()).toBe('AAA aaa Delete Are you sure?   No Yes');
   });
 });
