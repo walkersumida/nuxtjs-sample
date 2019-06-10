@@ -1,8 +1,12 @@
 <template>
   <div>
-    <div>
-      <PostShow v-for="post in posts" :key="post.id" :post="post" />
-    </div>
+    <v-container grid-list-md text-xs>
+      <PostShow
+        v-for="post in $store.getters['post/data']"
+        :key="post.id"
+        :post="post"
+      />
+    </v-container>
     <div>
       <nuxt-link to="/posts/new"><v-btn color="info">Add</v-btn></nuxt-link>
     </div>
@@ -10,7 +14,6 @@
 </template>
 
 <script lang="ts">
-import axios from '~/plugins/axios'
 import { Component, Vue } from 'vue-property-decorator'
 import Post from '~/models/Post'
 
@@ -18,11 +21,8 @@ import Post from '~/models/Post'
   components: {
     PostShow: () => import('~/components/post/Show.vue')
   },
-  async asyncData() {
-    const res = await axios.get('/posts')
-    return {
-      posts: res.data
-    }
+  async asyncData({ store }) {
+    await store.dispatch('post/index')
   }
 })
 export default class PostsIndex extends Vue {
