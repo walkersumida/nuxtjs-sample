@@ -13,21 +13,21 @@ describe("SignInPreview component", () => {
   })
 
   it("has the expected email element", () => {
-    expect(wrapper.contains('input[name="email"]')).toBe(true)
+    expect(wrapper.contains('v-text-field[type="email"]')).toBe(true)
   })
 
   it("has the expected password element", () => {
-    expect(wrapper.contains('input[name="password"]')).toBe(true)
+    expect(wrapper.contains('v-text-field[type="password"]')).toBe(true)
   })
 
   it("has the expected Sign In button", () => {
-    expect(wrapper.contains('input[value="Sign In"]')).toBe(true)
+    expect(wrapper.contains('v-btn[name="signIn"]')).toBe(true)
   })
 
   it("is called signIn() when click Sign In button", () => {
     const mock = jest.fn()
     wrapper.setMethods({ signIn: mock })
-    wrapper.find('input[value="Sign In"]').trigger('click')
+    wrapper.find('v-btn[name="signIn"]').trigger('click')
     expect(mock).toBeCalled()
   })
 })
