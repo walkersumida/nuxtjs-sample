@@ -1,20 +1,32 @@
 <template>
-  <div>
-    <p>
-      <input v-model="email" name="email" type="text" placeholder="email" />
-    </p>
-    <p>
-      <input
-        v-model="password"
-        name="password"
-        type="password"
-        placeholder="password"
-      />
-    </p>
-    <p>
-      <input value="Sign In" type="submit" @click="signIn" />
-    </p>
-  </div>
+  <v-layout>
+    <v-flex xs12 sm6 offset-sm3>
+      <v-card>
+        <v-img src="/nuxtjs_rails_icon.png" aspect-ratio="2.75"></v-img>
+
+        <v-card-title primary-title>
+          <v-flex xs12 sm12>
+            <v-text-field v-model="email" type="email" label="Email">
+            </v-text-field>
+          </v-flex>
+          <v-flex xs12 sm12>
+            <v-text-field
+              v-model="password"
+              label="Password"
+              :append-icon="showPass ? 'visibility' : 'visibility_off'"
+              :type="showPass ? 'text' : 'password'"
+              @click:append="showPass = !showPass"
+            >
+            </v-text-field>
+          </v-flex>
+        </v-card-title>
+
+        <v-card-actions>
+          <v-btn color="info" name="signIn" @click="signIn">Sign In</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-flex>
+  </v-layout>
 </template>
 
 <script lang="ts">
@@ -24,6 +36,7 @@ import { Component, Vue } from 'vue-property-decorator'
 export default class SignInPreview extends Vue {
   data() {
     return {
+      showPass: false,
       email: '',
       password: ''
     }

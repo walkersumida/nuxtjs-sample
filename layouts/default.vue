@@ -62,7 +62,7 @@ export default class LayoutDefault extends Vue {
         }
       ],
       miniVariant: false,
-      title: 'Vuetify.js'
+      title: 'Nuxtjs x Rails'
     }
   }
 }
