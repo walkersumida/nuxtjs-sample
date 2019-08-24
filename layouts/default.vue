@@ -56,6 +56,11 @@ export default class LayoutDefault extends Vue {
           to: '/posts'
         },
         {
+          icon: 'profile',
+          title: 'Your profile',
+          to: '/settings/profile'
+        },
+        {
           icon: 'logout',
           title: 'Logout',
           to: '/sign_out'
