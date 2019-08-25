@@ -31,7 +31,7 @@ import Post from '~/models/Post'
 
 @Component
 export default class PostShow extends Vue {
-  @Prop({ type: Object, required: true }) post: Post
+  @Prop({ type: Object, required: true }) post!: Post
   data() {
     return {
       dialog: false
@@ -43,10 +43,10 @@ export default class PostShow extends Vue {
         post: this.post
       })
       .then(
-        done => {
+        () => {
           console.log('success')
         },
-        fail => {
+        () => {
           console.log('fail')
         }
       )

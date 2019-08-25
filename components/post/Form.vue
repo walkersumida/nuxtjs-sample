@@ -19,7 +19,7 @@ import Post from '~/models/Post'
 
 @Component
 export default class PostForm extends Vue {
-  @Prop({ type: Object }) post: Post
+  @Prop({ type: Object }) post!: Post
   data() {
     return {
       title: '',
@@ -36,10 +36,10 @@ export default class PostForm extends Vue {
         body: this.body
       })
       .then(
-        done => {
+        () => {
           this.$router.push('/posts')
         },
-        fail => {
+        () => {
           console.log('fail')
         }
       )

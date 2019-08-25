@@ -47,7 +47,7 @@ export default class SignInPreview extends Vue {
         email: this.email,
         password: this.password
       })
-      .then(done => {
+      .then(() => {
         this.$router.push('/posts')
       })
   }
