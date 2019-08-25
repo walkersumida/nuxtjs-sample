@@ -34,14 +34,11 @@ import { Component, Vue } from 'vue-property-decorator'
 
 @Component
 export default class SignInPreview extends Vue {
-  data() {
-    return {
-      showPass: false,
-      email: '',
-      password: ''
-    }
-  }
-  signIn() {
+  private showPass: boolean = false
+  private email: string = ''
+  private password: string = ''
+
+  private signIn(): void {
     this.$store
       .dispatch('user/signIn', {
         email: this.email,

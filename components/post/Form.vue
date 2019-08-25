@@ -20,16 +20,13 @@ import Post from '~/models/Post'
 @Component
 export default class PostForm extends Vue {
   @Prop({ type: Object }) post!: Post
-  data() {
-    return {
-      title: '',
-      titleRules: [v => !!v || 'Title is required'],
-      body: '',
-      valid: false
-    }
-  }
-  savePost() {
-    if (!this.$refs.form.validate()) return (this.valid = false)
+
+  private title: string = ''
+  private titleRules: any = [v => !!v || 'Title is required']
+  private body: string = ''
+  private valid: boolean = false
+
+  private savePost(): void {
     this.$store
       .dispatch('post/create', {
         title: this.title,
