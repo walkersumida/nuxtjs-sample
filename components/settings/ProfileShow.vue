@@ -29,7 +29,6 @@ export default class SettingsProfileShow extends Vue {
     return this.user.nickname
   }
   private saveUser(): void {
-    console.log('pass')
     this.$store
       .dispatch('user/update', {
         id: 'me',
