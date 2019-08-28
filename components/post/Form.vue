@@ -36,8 +36,8 @@ export default class PostForm extends Vue {
         () => {
           this.$router.push('/posts')
         },
-        () => {
-          console.log('fail')
+        fail => {
+          console.log(fail)
         }
       )
   }
