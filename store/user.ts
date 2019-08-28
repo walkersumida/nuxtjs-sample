@@ -25,8 +25,29 @@ export const actions = {
     params.append('password', password)
     try {
       const res = await axios.post('/auth/sign_in', params)
-      commit('SET_USER', res.data.data)
+      commit('SET_USER', res.data)
     } catch (error) {
+      commit('SET_USER', null)
+    }
+  },
+  async show ({ commit, rootGetters }, id) {
+    try {
+      if(rootGetters['user/data'] !== null) { return }
+      const res = await axios.get('/users/' + id)
+      commit('SET_USER', res.data)
+    } catch (error) {
+      commit('SET_USER', null)
+    }
+  },
+  async update ({ commit }, { id, data }) {
+    try {
+      const params = {
+        user: data
+      }
+      const res = await axios.patch('/users/' + id, params)
+      commit('SET_USER', res.data)
+    } catch (error) {
+      console.log(error)
       commit('SET_USER', null)
     }
   }
