@@ -7,6 +7,18 @@
       fixed
       app
     >
+      <v-list>
+        <v-list-tile>
+          <v-list-item-content>
+            <v-list-item-title class="title">
+              {{ $store.getters['user/data']['nickname'] }}
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-tile>
+      </v-list>
+
+      <v-divider></v-divider>
+
       <v-list v-if="!isSignInPage()">
         <v-list-tile
           v-for="(item, i) in items"
