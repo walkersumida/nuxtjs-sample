@@ -9,11 +9,9 @@
     >
       <v-list v-if="!isSignInPage()">
         <v-list-tile>
-          <v-list-item-content>
-            <v-list-item-title class="title">
-              {{ showNickname() }}
-            </v-list-item-title>
-          </v-list-item-content>
+          <v-list-item-title class="title">
+            {{ showNickname() }}
+          </v-list-item-title>
         </v-list-tile>
       </v-list>
 
@@ -30,9 +28,7 @@
           <v-list-tile-action>
             <v-icon>{{ $vuetify.icons[item.icon] }}</v-icon>
           </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title v-text="item.title" />
-          </v-list-tile-content>
+          <v-list-tile-title v-text="item.title" />
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
