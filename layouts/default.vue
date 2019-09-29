@@ -8,6 +8,16 @@
       app
     >
       <v-list v-if="!isSignInPage()">
+        <v-list-tile>
+          <v-list-item-title class="title">
+            {{ showNickname() }}
+          </v-list-item-title>
+        </v-list-tile>
+      </v-list>
+
+      <v-divider></v-divider>
+
+      <v-list v-if="!isSignInPage()">
         <v-list-tile
           v-for="(item, i) in items"
           :key="i"
@@ -18,9 +28,7 @@
           <v-list-tile-action>
             <v-icon>{{ $vuetify.icons[item.icon] }}</v-icon>
           </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title v-text="item.title" />
-          </v-list-tile-content>
+          <v-list-tile-title v-text="item.title" />
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
@@ -44,29 +52,33 @@ import { Component, Vue } from 'vue-property-decorator'
 
 @Component
 export default class LayoutDefault extends Vue {
-  data() {
-    return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
-      items: [
-        {
-          icon: 'post',
-          title: 'Post',
-          to: '/posts'
-        },
-        {
-          icon: 'logout',
-          title: 'Logout',
-          to: '/sign_out'
-        }
-      ],
-      miniVariant: false,
-      title: 'Nuxtjs x Rails',
-      isSignInPage: () => {
-        return this.$route.path === '/sign_in'
-      }
+  private clipped: boolean = false
+  private drawer: boolean = false
+  private fixed: boolean = false
+  private items: any = [
+    {
+      icon: 'post',
+      title: 'Post',
+      to: '/posts'
+    },
+    {
+      icon: 'profile',
+      title: 'Your profile',
+      to: '/settings/profile'
+    },
+    {
+      icon: 'logout',
+      title: 'Logout',
+      to: '/sign_out'
     }
+  ]
+  private miniVariant: boolean = false
+  private title: string = 'Nuxtjs x Rails'
+  private isSignInPage(): boolean {
+    return this.$route.path === '/sign_in'
+  }
+  private showNickname(): string {
+    return this.$store.getters['user/data'].nickname || ''
   }
 }
 </script>

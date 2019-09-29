@@ -1,5 +1,5 @@
 <template>
-  <v-form ref="form" v-model="valid">
+  <v-form v-model="valid">
     <p>
       <v-text-field v-model="title" label="Title" :rules="titleRules">
       </v-text-field>
@@ -36,8 +36,8 @@ export default class PostForm extends Vue {
         () => {
           this.$router.push('/posts')
         },
-        () => {
-          console.log('fail')
+        fail => {
+          console.log(fail)
         }
       )
   }
