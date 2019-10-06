@@ -1,6 +1,9 @@
 <template>
   <v-form v-model="valid">
     <p>
+      <v-file-input label="File input"></v-file-input>
+    </p>
+    <p>
       <v-text-field
         v-model="nickname"
         label="Nickname"
