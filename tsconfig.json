@@ -26,8 +26,12 @@
     },
     "types": [
       "@types/node",
-      "@nuxt/vue-app",
+      "@nuxt/types",
       "@types/jest"
-    ]
-  }
+    ],
+    "resolveJsonModule": true
+  },
+  "exclude": [
+    "node_modules"
+  ]
 }
