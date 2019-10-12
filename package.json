@@ -22,13 +22,12 @@
     "js-cookie": "^2.2.0",
     "nuxt": "^2.4.0",
     "vue-property-decorator": "^8.1.0",
-    "vuetify": "^1.5.5",
-    "vuetify-loader": "^1.2.1",
     "vuex-persistedstate": "^2.5.4"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^0.3.0",
     "@nuxtjs/eslint-config-typescript": "^0.1.3",
+    "@nuxtjs/vuetify": "^1.9.0",
     "@types/jest": "^24.0.11",
     "@typescript-eslint/parser": "^2.0.0",
     "@vue/test-utils": "^1.0.0-beta.27",

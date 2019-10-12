@@ -27,6 +27,7 @@
     "types": [
       "@types/node",
       "@nuxt/types",
+      "@nuxtjs/vuetify",
       "@types/jest"
     ],
     "resolveJsonModule": true

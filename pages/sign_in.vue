@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <v-app>
     <SignInPreview />
-  </div>
+  </v-app>
 </template>
 
 <script lang="ts">

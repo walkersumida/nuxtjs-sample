@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <v-app>
     <v-container grid-list-md text-xs>
       <PostShow
         v-for="post in $store.getters['post/data']"
@@ -10,7 +10,7 @@
     <div>
       <nuxt-link to="/posts/new"><v-btn color="info">Add</v-btn></nuxt-link>
     </div>
-  </div>
+  </v-app>
 </template>
 
 <script lang="ts">

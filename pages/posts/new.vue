@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <v-app>
     <PostForm />
-  </div>
+  </v-app>
 </template>
 
 <script lang="ts">

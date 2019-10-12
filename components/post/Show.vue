@@ -7,7 +7,7 @@
       <p>{{ post.body }}</p>
     </v-flex>
     <v-flex xs3>
-      <v-btn flat color="error" @click.stop="dialog = true">Delete</v-btn>
+      <v-btn color="error" @click.stop="dialog = true">Delete</v-btn>
       <v-dialog v-model="dialog" max-width="290">
         <v-card>
           <v-card-title class="headline">Are you sure?</v-card-title>
@@ -16,8 +16,8 @@
 
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn flat @click="dialog = false">No</v-btn>
-            <v-btn flat color="error" @click="deletePost">Yes</v-btn>
+            <v-btn @click="dialog = false">No</v-btn>
+            <v-btn color="error" @click="deletePost">Yes</v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
