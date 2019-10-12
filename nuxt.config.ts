@@ -40,7 +40,7 @@ const config: Configuration = {
   /*
    ** Global CSS
    */
-  css: ['~/assets/style/app.styl'],
+  css: ['~/assets/style/app.sass'],
 
   /*
    ** Plugins to load before mounting the App
@@ -56,6 +56,7 @@ const config: Configuration = {
   buildModules: [
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
+    '@nuxtjs/vuetify',
     ['@nuxt/typescript-build', {
       typeCheck: true,
       ignoreNotFoundWarnings: true
@@ -74,11 +75,6 @@ const config: Configuration = {
   build: {
     transpile: ['vuetify/lib'],
     plugins: [new VuetifyLoaderPlugin()],
-    loaders: {
-      stylus: {
-        import: ['~assets/style/variables.styl']
-      }
-    },
     /*
      ** You can extend webpack config here
      */
