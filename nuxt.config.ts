@@ -1,5 +1,5 @@
 import { Configuration } from '@nuxt/types'
-import VuetifyLoaderPlugin from 'vuetify-loader/lib/plugin'
+import vuetifyOptions from './plugins/vuetify.js'
 import pkg from './package.json'
 
 const config: Configuration = {
@@ -46,7 +46,6 @@ const config: Configuration = {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    '@/plugins/vuetify',
     { src: '@/plugins/localStorage.js', ssr: false }
   ],
 
@@ -56,7 +55,7 @@ const config: Configuration = {
   buildModules: [
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    '@nuxtjs/vuetify',
+    ['@nuxtjs/vuetify', vuetifyOptions],
     ['@nuxt/typescript-build', {
       typeCheck: true,
       ignoreNotFoundWarnings: true
@@ -73,8 +72,6 @@ const config: Configuration = {
    ** Build configuration
    */
   build: {
-    transpile: ['vuetify/lib'],
-    plugins: [new VuetifyLoaderPlugin()],
     /*
      ** You can extend webpack config here
      */

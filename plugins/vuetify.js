@@ -1,12 +1,8 @@
-import Vue from 'vue'
-import Vuetify from 'vuetify/lib'
 import colors from 'vuetify/es5/util/colors'
-import 'font-awesome/css/font-awesome.min.css'
 
-const vuetify = new Vuetify({
-  customVariables: ['~/assets/variables.scss'],
+var options = {
   theme: {
-    dark: true,
+    dark: false,
     themes: {
       light: {
         primary: colors.blue.darken2,
@@ -29,12 +25,12 @@ const vuetify = new Vuetify({
     }
   },
   icons: {
-    iconfont: 'mdi',
+    iconfont: 'fa',
     values: {
       post: 'fa fa-lg fa-file',
       profile: 'fa fa-user fa-lg',
       logout: 'fa fa-lg fa-sign-out'
     }
   }
-})
-Vue.use(vuetify)
+}
+export default options
