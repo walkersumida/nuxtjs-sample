@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <v-app>
     <v-container grid-list-md text-xs>
       <SettingsProfileShow
         :user="$store.getters['user/data']"
       ></SettingsProfileShow>
     </v-container>
-  </div>
+  </v-app>
 </template>
 
 <script lang="ts">

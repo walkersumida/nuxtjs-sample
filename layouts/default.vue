@@ -4,44 +4,52 @@
       v-model="drawer"
       :mini-variant="miniVariant"
       :clipped="clipped"
-      fixed
-      app
+      absolute
+      temporary
     >
       <v-list v-if="!isSignInPage()">
-        <v-list-tile>
+        <v-list-item>
+          <v-avatar>
+            <img
+              src="https://vuetifyjs.com/apple-touch-icon-180x180.png"
+              alt="avatar"
+            />
+          </v-avatar>
           <v-list-item-title class="title">
             {{ showNickname() }}
           </v-list-item-title>
-        </v-list-tile>
+        </v-list-item>
       </v-list>
 
       <v-divider></v-divider>
 
       <v-list v-if="!isSignInPage()">
-        <v-list-tile
+        <v-list-item
           v-for="(item, i) in items"
           :key="i"
           :to="item.to"
           router
           exact
         >
-          <v-list-tile-action>
-            <v-icon>{{ $vuetify.icons[item.icon] }}</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-title v-text="item.title" />
-        </v-list-tile>
+          <v-list-item-action>
+            <v-icon>{{ $vuetify.icons.values[item.icon] }}</v-icon>
+          </v-list-item-action>
+          <v-list-item-title v-text="item.title" />
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar :clipped-left="clipped" fixed app>
-      <v-toolbar-side-icon v-if="!isSignInPage()" @click="drawer = !drawer" />
+
+    <v-app-bar>
+      <v-app-bar-nav-icon v-if="!isSignInPage()" @click.stop="drawer = !drawer">
+      </v-app-bar-nav-icon>
       <v-toolbar-title v-text="title" />
-    </v-toolbar>
+    </v-app-bar>
     <v-content>
       <v-container>
         <nuxt />
       </v-container>
     </v-content>
-    <v-footer :fixed="fixed" app>
+    <v-footer absolute>
       <span>&copy; 2019</span>
     </v-footer>
   </v-app>
