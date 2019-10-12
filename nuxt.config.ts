@@ -40,7 +40,10 @@ const config: Configuration = {
   /*
    ** Global CSS
    */
-  css: ['~/assets/style/app.sass'],
+  css: [
+    '~/assets/style/app.sass',
+    'font-awesome/css/font-awesome.min.css'
+  ],
 
   /*
    ** Plugins to load before mounting the App
