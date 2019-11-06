@@ -29,7 +29,8 @@ const config: Configuration = {
    ** Environment variables
    */
   env: {
-    apiUrl: process.env.API_URL || 'http://0.0.0.0:3000'
+    apiUrl: process.env.API_URL || 'http://0.0.0.0:3000',
+    storeUrl: process.env.STORE_URL || 'http://0.0.0.0:3000'
   },
 
   /*
