@@ -10,12 +10,11 @@
     >
       <v-list>
         <v-list-item>
-          <v-avatar>
-            <img
-              src="https://vuetifyjs.com/apple-touch-icon-180x180.png"
-              alt="avatar"
-            />
-          </v-avatar>
+          <v-list-item-icon>
+            <v-avatar tile>
+              <img :src="setProfileImage()" alt="Profile" />
+            </v-avatar>
+          </v-list-item-icon>
           <v-list-item-title class="title">
             {{ showNickname() }}
           </v-list-item-title>
@@ -87,6 +86,12 @@ export default class LayoutDefault extends Vue {
   }
   private showNickname(): string {
     return this.$store.getters['user/data'].nickname || ''
+  }
+  private setProfileImage(): string {
+    if (this.$store.getters['user/data'].image.url === null) {
+      return '/user.png'
+    }
+    return process.env.storeUrl + this.$store.getters['user/data'].image.url
   }
 }
 </script>
