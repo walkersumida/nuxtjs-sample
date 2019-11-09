@@ -9,6 +9,9 @@ export const state = () => {
 export const mutations = {
   SET_USER (state, data) {
     state.data = data || null
+  },
+  SET_USER_PROFILE_IMAGE (state, profileImage) {
+    state.data.image = profileImage || null
   }
 }
 
@@ -49,6 +52,17 @@ export const actions = {
     } catch (error) {
       console.log(error)
       commit('SET_USER', null)
+    }
+  },
+  async uploadProfileImage({ commit }, { id, data }) {
+    try {
+      var formData = new FormData();
+      formData.append('image', data.image.files[0]);
+      const res = await axios.post('/users/' + id + '/profile_image', formData)
+      commit('SET_USER_PROFILE_IMAGE', res.data.image)
+    } catch (error) {
+      console.log(error)
+      commit('SET_USER_PROFILE_IMAGE', '')
     }
   }
 }
