@@ -7,7 +7,7 @@ describe("ProfileShow component", () => {
   beforeEach(() => {
     wrapper = shallowMount(ProfileShow, {
       propsData: {
-        user: { nickname: 'demo' }
+        user: { nickname: 'demo', image: { url: null } }
       }
     });
   });
