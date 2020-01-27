@@ -1,6 +1,28 @@
 <template>
   <v-form v-model="valid">
     <p>
+      <v-card class="d-inline-block mx-auto profile-image-box">
+        <v-container>
+          <v-row justify="space-between">
+            <v-col cols="auto">
+              <input
+                @change="selectedFile"
+                type="file"
+                ref="profileImage"
+                style="display: none"
+              />
+              <v-img
+                @click="$refs.profileImage.click()"
+                height="200"
+                width="200"
+                :src="setProfileImage()"
+              ></v-img>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-card>
+    </p>
+    <p>
       <v-text-field
         v-model="nickname"
         label="Nickname"
@@ -12,6 +34,12 @@
     </p>
   </v-form>
 </template>
+
+<style scoped>
+.profile-image-box {
+  cursor: pointer;
+}
+</style>
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator'
@@ -42,6 +70,27 @@ export default class SettingsProfileShow extends Vue {
           console.log(fail)
         }
       )
+  }
+  private selectedFile(): void {
+    this.$store
+      .dispatch('user/uploadProfileImage', {
+        id: 'me',
+        data: { image: this.$refs.profileImage }
+      })
+      .then(
+        done => {
+          console.log(done)
+        },
+        fail => {
+          console.log(fail)
+        }
+      )
+  }
+  private setProfileImage(): string {
+    if (this.$store.getters['user/data'].image.url === null) {
+      return '/user.png'
+    }
+    return this.$store.getters['user/data'].image.url
   }
 }
 </script>
