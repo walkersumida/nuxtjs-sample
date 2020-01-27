@@ -51,7 +51,6 @@ const config: Configuration = {
    */
   plugins: [
     { src: '@/plugins/localStorage.js', ssr: false },
-    { src: '@/plugins/track.js' }
   ],
 
   /*
