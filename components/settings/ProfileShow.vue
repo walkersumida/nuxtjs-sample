@@ -90,7 +90,7 @@ export default class SettingsProfileShow extends Vue {
     if (this.$store.getters['user/data'].image.url === null) {
       return '/user.png'
     }
-    return this.$store.getters['user/data'].image.url
+    return process.env.storeUrl + this.$store.getters['user/data'].image.url
   }
 }
 </script>
