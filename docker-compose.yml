@@ -10,4 +10,9 @@ services:
       - "8080:3000"
     volumes:
       - ".:/app"
+      - yarn:/yarn
+      - node_modules:/app/node_modules
     tty: true
+volumes:
+  yarn:
+  node_modules:
