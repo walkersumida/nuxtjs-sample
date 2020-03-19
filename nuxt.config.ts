@@ -43,7 +43,7 @@ const config: Configuration = {
    */
   css: [
     '~/assets/style/app.sass',
-    'font-awesome/css/font-awesome.min.css'
+    '@fortawesome/fontawesome-free/css/all.css'
   ],
 
   /*
