@@ -25,7 +25,7 @@ var options = {
     }
   },
   icons: {
-    iconfont: 'fa4',
+    iconfont: 'fa',
     values: {
       post: 'fa fa-lg fa-file',
       profile: 'fa fa-user fa-lg',
