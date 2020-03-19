@@ -27,9 +27,9 @@ var options = {
   icons: {
     iconfont: 'fa',
     values: {
-      post: 'fa fa-lg fa-file',
-      profile: 'fa fa-user fa-lg',
-      logout: 'fa fa-lg fa-sign-out'
+      post: 'fas fa-file',
+      profile: 'fas fa-user',
+      logout: 'fas fa-sign-out-alt'
     }
   }
 }
