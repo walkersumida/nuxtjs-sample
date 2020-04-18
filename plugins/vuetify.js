@@ -1,6 +1,6 @@
 import colors from 'vuetify/es5/util/colors'
 
-var options = {
+const options = {
   theme: {
     dark: true,
     themes: {

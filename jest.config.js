@@ -20,7 +20,5 @@ module.exports = {
       diagnostics: false
     }
   },
-  setupFiles: [
-    'jest-plugin-context/setup'
-  ]
+  setupFiles: ['jest-plugin-context/setup']
 }

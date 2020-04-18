@@ -41,17 +41,12 @@ const config: Configuration = {
   /*
    ** Global CSS
    */
-  css: [
-    '~/assets/style/app.sass',
-    '@fortawesome/fontawesome-free/css/all.css'
-  ],
+  css: ['~/assets/style/app.sass', '@fortawesome/fontawesome-free/css/all.css'],
 
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [
-    { src: '@/plugins/localStorage.js', ssr: false },
-  ],
+  plugins: [{ src: '@/plugins/localStorage.js', ssr: false }],
 
   /*
    ** Nuxt.js modules
@@ -60,10 +55,13 @@ const config: Configuration = {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     ['@nuxtjs/vuetify', vuetifyOptions],
-    ['@nuxt/typescript-build', {
-      typeCheck: true,
-      ignoreNotFoundWarnings: true
-    }]
+    [
+      '@nuxt/typescript-build',
+      {
+        typeCheck: true,
+        ignoreNotFoundWarnings: true
+      }
+    ]
   ],
   /*
    ** Axios module configuration

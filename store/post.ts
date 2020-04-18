@@ -8,13 +8,13 @@ export const state = () => {
 }
 
 export const mutations = {
-  SET_POST (state, data) {
+  SET_POST(state, data) {
     state.data = data || []
   }
 }
 
 export const getters = {
-  data (state) {
+  data(state) {
     return state.data
   }
 }
@@ -24,11 +24,11 @@ export const actions = {
     const res = await axios.get('/posts')
     commit('SET_POST', res.data)
   },
-  async create ({ commit }, { title, body }) {
+  async create({ commit }, { title, body }) {
     const params = {
       post: {
-        title: title,
-        body: body
+        title,
+        body
       }
     }
     const res = await axios.post('/posts', params)
