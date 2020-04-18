@@ -1,8 +1,8 @@
 <template>
   <v-app>
     <v-navigation-drawer
-      v-model="drawer"
       v-if="!isSignInPage()"
+      v-model="drawer"
       :mini-variant="miniVariant"
       :clipped="clipped"
       absolute

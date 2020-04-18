@@ -6,16 +6,16 @@
           <v-row justify="space-between">
             <v-col cols="auto">
               <input
-                @change="selectedFile"
-                type="file"
                 ref="profileImage"
+                type="file"
                 style="display: none"
+                @change="selectedFile"
               />
               <v-img
-                @click="$refs.profileImage.click()"
                 height="200"
                 width="200"
                 :src="setProfileImage()"
+                @click="$refs.profileImage.click()"
               ></v-img>
             </v-col>
           </v-row>

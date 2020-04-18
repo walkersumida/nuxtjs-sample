@@ -21,8 +21,8 @@ const removeCookies = () => {
 
 const setHeaders = (headers: Headers) => {
   headers['access-token'] = Cookies.get('headerAccessToken')
-  headers['client'] = Cookies.get('headerClient')
-  headers['uid'] = Cookies.get('headerUid')
+  headers.client = Cookies.get('headerClient')
+  headers.uid = Cookies.get('headerUid')
   return headers
 }
 
@@ -32,13 +32,13 @@ const setCookie = (name: string, value: string) => {
 }
 
 const setCookies = (headers: Headers) => {
-  setCookie('headerClient', headers['client'])
-  setCookie('headerUid', headers['uid'])
-  if(headers['access-token']) {
+  setCookie('headerClient', headers.client)
+  setCookie('headerUid', headers.uid)
+  if (headers['access-token']) {
     setCookie('headerAccessToken', headers['access-token'])
   }
-  if(headers['expiry']) {
-    setCookie('headerExpiry', headers['expiry'])
+  if (headers.expiry) {
+    setCookie('headerExpiry', headers.expiry)
   }
 }
 
@@ -46,23 +46,29 @@ const axiosInstance = axios.create({
   baseURL: process.env.apiUrl
 })
 
-axiosInstance.interceptors.request.use((config) => {
-  config.headers = setHeaders(config.headers)
-  return config
-}, (error) => {
-  return Promise.reject(error)
-})
-
-axiosInstance.interceptors.response.use((response) => {
-  // See https://devise-token-auth.gitbook.io/devise-token-auth/conceptual
-  setCookies(response.headers)
-  return response
-}, (error) => {
-  removeCookies()
-  // FIXME: redirect without using window.location
-  if(error.response.status === 401) {
-    window.location.href = '/sign_in'
+axiosInstance.interceptors.request.use(
+  config => {
+    config.headers = setHeaders(config.headers)
+    return config
+  },
+  error => {
+    return Promise.reject(error)
   }
-  return Promise.reject(error)
-})
+)
+
+axiosInstance.interceptors.response.use(
+  response => {
+    // See https://devise-token-auth.gitbook.io/devise-token-auth/conceptual
+    setCookies(response.headers)
+    return response
+  },
+  error => {
+    removeCookies()
+    // FIXME: redirect without using window.location
+    if (error.response.status === 401) {
+      window.location.href = '/sign_in'
+    }
+    return Promise.reject(error)
+  }
+)
 export default axiosInstance

@@ -32,12 +32,10 @@ import Post from '~/models/Post'
 @Component
 export default class PostShow extends Vue {
   @Prop({ type: Object, required: true }) post!: Post
-  data() {
-    return {
-      dialog: false
-    }
-  }
-  deletePost() {
+
+  private dialog: boolean = false
+
+  private deletePost(): void {
     this.$store
       .dispatch('post/delete', {
         post: this.post
