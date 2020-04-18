@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils"
-import ProfileShow from "@/components/settings/ProfileShow"
+import ProfileShow from "@/components/settings/ProfileShow.vue"
 
 describe("ProfileShow component", () => {
   let wrapper;
