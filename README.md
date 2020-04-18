@@ -4,6 +4,8 @@
 
 TypeScript + Nuxt.js + Vuetify + Jest
 
+![nuxtjs-sample](https://user-images.githubusercontent.com/12683375/79627129-b880f200-8170-11ea-8502-0c94c58e65e7.gif)
+
 ## Run docker
 
 ```bash
