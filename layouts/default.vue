@@ -81,12 +81,15 @@ export default class LayoutDefault extends Vue {
   ]
   private miniVariant: boolean = false
   private title: string = 'Nuxtjs x Rails'
+
   private isSignInPage(): boolean {
     return this.$route.path === '/sign_in'
   }
+
   private showNickname(): string {
     return this.$store.getters['user/data'].nickname || ''
   }
+
   private setProfileImage(): string {
     if (this.$store.getters['user/data'].image.url === null) {
       return '/user.png'
