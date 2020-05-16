@@ -24,20 +24,19 @@ export const actions = {
     const res = await axios.get('/posts')
     commit('SET_POST', res.data)
   },
-  async create({ commit }, { title, body }) {
+  async create({ _commit }, { title, body }) {
     const params = {
       post: {
         title,
         body
       }
     }
-    const res = await axios.post('/posts', params)
+    await axios.post('/posts', params)
   },
   async delete({ commit, getters }, { post }) {
     try {
-      const res = await axios.delete('/posts/' + post.id)
-      let data: Post[]
-      data = removePost(post.id, getters.data)
+      await axios.delete('/posts/' + post.id)
+      const data: Post[] = removePost(post.id, getters.data)
       commit('SET_POST', data)
     } catch (error) {
       console.log(error)
