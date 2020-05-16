@@ -56,6 +56,7 @@ export default class SettingsProfileShow extends Vue {
   private initNickname(): string {
     return this.user.nickname
   }
+
   private saveUser(): void {
     this.$store
       .dispatch('user/update', {
@@ -71,6 +72,7 @@ export default class SettingsProfileShow extends Vue {
         }
       )
   }
+
   private selectedFile(): void {
     this.$store
       .dispatch('user/uploadProfileImage', {
@@ -86,6 +88,7 @@ export default class SettingsProfileShow extends Vue {
         }
       )
   }
+
   private setProfileImage(): string {
     if (this.$store.getters['user/data'].image.url === null) {
       return '/user.png'
