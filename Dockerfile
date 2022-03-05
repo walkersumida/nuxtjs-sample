@@ -6,7 +6,6 @@ RUN echo "deb http://deb.debian.org/debian jessie main" > /etc/apt/sources.list 
 # install dependency package
 RUN apt-get update \
  && apt-get install -y \
-    apt-transport-https \
     libssl-dev \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
